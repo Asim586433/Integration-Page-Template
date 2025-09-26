@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Integration Page Template</title>
+    <title>IntegratePro - POS & eCommerce Integration Solutions</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* CSS Reset and Base Styles */
+        /* CSS Variables */
         :root {
             --primary-color: #2c5aa0;
             --secondary-color: #f8a01d;
@@ -20,6 +21,7 @@
             --transition: all 0.3s ease;
         }
         
+        /* Reset and Base Styles */
         * {
             margin: 0;
             padding: 0;
@@ -88,6 +90,17 @@
             background-color: #2a9e46;
         }
         
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+        }
+        
+        .btn-outline:hover {
+            background-color: var(--primary-color);
+            color: var(--light-text);
+        }
+        
         /* Header Styles */
         header {
             background-color: var(--light-text);
@@ -125,10 +138,13 @@
         nav ul li a {
             font-weight: 500;
             transition: var(--transition);
+            padding: 5px 10px;
+            border-radius: var(--border-radius);
         }
         
-        nav ul li a:hover {
+        nav ul li a:hover, nav ul li a.active {
             color: var(--primary-color);
+            background-color: rgba(44, 90, 160, 0.1);
         }
         
         .mobile-menu-btn {
@@ -137,6 +153,25 @@
             border: none;
             font-size: 24px;
             cursor: pointer;
+        }
+        
+        /* Page Content */
+        .page-content {
+            min-height: 70vh;
+            padding: 60px 0;
+        }
+        
+        .page-hidden {
+            display: none;
+        }
+        
+        .breadcrumb {
+            margin-bottom: 30px;
+            font-size: 0.9rem;
+        }
+        
+        .breadcrumb a {
+            color: var(--primary-color);
         }
         
         /* Hero Section */
@@ -224,6 +259,184 @@
             font-size: 1.3rem;
         }
         
+        /* Solutions Page Styles */
+        .solutions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .solution-card {
+            background: var(--light-text);
+            border-radius: var(--border-radius);
+            padding: 30px;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+            text-align: center;
+        }
+        
+        .solution-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .solution-icon {
+            width: 80px;
+            height: 80px;
+            background-color: var(--light-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            color: var(--primary-color);
+            font-size: 32px;
+        }
+        
+        /* Integrations Page Styles */
+        .integrations-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .integration-card {
+            background: var(--light-text);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+            text-align: center;
+        }
+        
+        .integration-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .integration-icon {
+            height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--light-color);
+            font-size: 48px;
+            color: var(--primary-color);
+        }
+        
+        .integration-card-content {
+            padding: 20px;
+        }
+        
+        .integration-card h3 {
+            margin-bottom: 10px;
+        }
+        
+        .integration-card p {
+            color: var(--gray-text);
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+        
+        /* Pricing Page Styles */
+        .pricing-table {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .pricing-card {
+            background: var(--light-text);
+            border-radius: var(--border-radius);
+            padding: 30px;
+            box-shadow: var(--box-shadow);
+            text-align: center;
+            position: relative;
+        }
+        
+        .pricing-card.popular {
+            border: 2px solid var(--primary-color);
+            transform: scale(1.05);
+        }
+        
+        .popular-badge {
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--primary-color);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        
+        .pricing-card h3 {
+            margin-bottom: 15px;
+        }
+        
+        .price {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+        
+        .price span {
+            font-size: 1rem;
+            color: var(--gray-text);
+        }
+        
+        .pricing-features {
+            margin: 20px 0;
+        }
+        
+        .pricing-features li {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .pricing-features li i {
+            color: var(--accent-color);
+            margin-right: 10px;
+        }
+        
+        /* Contact Page Styles */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+        
+        .contact-info {
+            background: var(--light-color);
+            padding: 30px;
+            border-radius: var(--border-radius);
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 25px;
+        }
+        
+        .contact-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--primary-color);
+            color: var(--light-text);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+        
         /* Testimonials Section */
         .testimonials {
             padding: 80px 0;
@@ -257,35 +470,6 @@
         .testimonial-role {
             color: var(--gray-text);
             font-size: 0.9rem;
-        }
-        
-        /* Product Info Section */
-        .product-info {
-            padding: 80px 0;
-        }
-        
-        .info-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-        
-        .info-card {
-            padding: 20px;
-        }
-        
-        .info-card h3 {
-            margin-bottom: 15px;
-            font-size: 1.3rem;
-        }
-        
-        .info-card ul {
-            margin-left: 20px;
-        }
-        
-        .info-card ul li {
-            list-style: disc;
-            margin-bottom: 10px;
         }
         
         /* FAQ Section */
@@ -370,6 +554,11 @@
             font-size: 1rem;
         }
         
+        textarea.form-control {
+            min-height: 120px;
+            resize: vertical;
+        }
+        
         /* Footer */
         footer {
             background-color: var(--dark-color);
@@ -405,6 +594,78 @@
             color: rgba(255, 255, 255, 0.7);
         }
         
+        /* Resources Page Styles */
+        .resources-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .resource-card {
+            background: var(--light-text);
+            border-radius: var(--border-radius);
+            padding: 30px;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+            text-align: center;
+        }
+        
+        .resource-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .resource-icon {
+            width: 60px;
+            height: 60px;
+            background-color: var(--light-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            color: var(--primary-color);
+            font-size: 24px;
+        }
+        
+        /* Demo Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .modal-content {
+            background: white;
+            padding: 30px;
+            border-radius: var(--border-radius);
+            max-width: 500px;
+            width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+        
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .close-modal {
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+        
         /* Responsive Styles */
         @media (max-width: 768px) {
             .header-container {
@@ -415,6 +676,11 @@
             nav ul {
                 margin-top: 20px;
                 flex-direction: column;
+                display: none;
+            }
+            
+            nav ul.active {
+                display: flex;
             }
             
             nav ul li {
@@ -441,6 +707,10 @@
                 width: 100%;
                 max-width: 300px;
             }
+            
+            .pricing-card.popular {
+                transform: scale(1);
+            }
         }
     </style>
 </head>
@@ -448,198 +718,480 @@
     <!-- Header -->
     <header>
         <div class="container header-container">
-            <a href="index.html" class="logo">Integrate<span>Pro</span></a>
+            <a href="#home" class="logo">Integrate<span>Pro</span></a>
             <button class="mobile-menu-btn">☰</button>
             <nav>
                 <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="solutions.html">Solutions</a></li>
-                    <li><a href="integrations.html">Integrations</a></li>
-                    <li><a href="pricing.html">Pricing</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                    <li><a href="#" class="btn btn-secondary">Free Trial</a></li>
+                    <li><a href="#home" class="nav-link active">Home</a></li>
+                    <li><a href="#solutions" class="nav-link">Solutions</a></li>
+                    <li><a href="#integrations" class="nav-link">Integrations</a></li>
+                    <li><a href="#pricing" class="nav-link">Pricing</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                    <li><a href="#free-trial" class="btn btn-secondary free-trial-btn">Free Trial</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero">
+    <!-- Home Page -->
+    <section id="home-page" class="page-content">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <h1>Seamless POS & eCommerce Integration</h1>
+                <p>Connect your sales channels, automate inventory management, and streamline operations with our powerful integration platform.</p>
+                <div class="hero-btns">
+                    <a href="#demo-form" class="btn request-demo-btn">Request a Demo</a>
+                    <a href="#free-trial" class="btn btn-secondary free-trial-btn">Start Free Trial</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="features">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Powerful Features for Your Business</h2>
+                    <p>Our integration platform offers everything you need to synchronize your POS and eCommerce systems</p>
+                </div>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon"><i class="fas fa-sync-alt"></i></div>
+                        <h3>Real-Time Sync</h3>
+                        <p>Keep inventory, orders, and customer data synchronized across all your sales channels in real-time.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon"><i class="fas fa-chart-bar"></i></div>
+                        <h3>Unified Reporting</h3>
+                        <p>Get comprehensive insights with consolidated reports from all your sales channels.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon"><i class="fas fa-shopping-cart"></i></div>
+                        <h3>Multi-Channel Sales</h3>
+                        <p>Sell anywhere with seamless integration between your physical stores and online platforms.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon"><i class="fas fa-shield-alt"></i></div>
+                        <h3>Secure & Reliable</h3>
+                        <p>Enterprise-grade security with 99.9% uptime guarantee for uninterrupted operations.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section class="testimonials">
+            <div class="container">
+                <div class="section-title">
+                    <h2>What Our Clients Say</h2>
+                    <p>Discover how businesses like yours are transforming their operations with our integration solutions</p>
+                </div>
+                <div class="testimonial-slider">
+                    <div class="testimonial">
+                        <p class="testimonial-text">"IntegratePro transformed our multi-store operations. We now have real-time visibility across all channels, reducing stockouts by 80%."</p>
+                        <p class="testimonial-author">Sarah Johnson</p>
+                        <p class="testimonial-role">Operations Manager, Retail Chain</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Product Information Section -->
+        <section class="product-info">
+            <div class="container">
+                <div class="section-title">
+                    <h2>How Our Integration Works</h2>
+                    <p>Simple setup, powerful results - connect your systems in minutes</p>
+                </div>
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h3>Platform Compatibility</h3>
+                        <ul>
+                            <li>Shopify & Shopify Plus</li>
+                            <li>Square POS</li>
+                            <li>WooCommerce</li>
+                            <li>Magento</li>
+                            <li>BigCommerce</li>
+                            <li>Custom POS Systems</li>
+                        </ul>
+                    </div>
+                    <div class="info-card">
+                        <h3>Key Integration Features</h3>
+                        <ul>
+                            <li>Automated inventory synchronization</li>
+                            <li>Order management across channels</li>
+                            <li>Customer data unification</li>
+                            <li>Real-time sales reporting</li>
+                            <li>Multi-location support</li>
+                            <li>API access for custom solutions</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="faq">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Frequently Asked Questions</h2>
+                    <p>Find answers to common questions about our integration platform</p>
+                </div>
+                <div class="faq-list">
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>How long does setup take?</span>
+                            <span>+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Most integrations can be set up in under 30 minutes with our guided setup process. For complex multi-location setups, our team provides dedicated implementation support.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>What happens during a free trial?</span>
+                            <span>+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>During your 14-day free trial, you get full access to all features with no limitations. Our support team is available to help you set up and optimize your integration.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>Do you offer custom solutions?</span>
+                            <span>+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Yes, we offer custom integration solutions for businesses with unique requirements. Contact our sales team to discuss your specific needs.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Final CTA Section -->
+        <section class="cta-section">
+            <div class="container">
+                <h2>Ready to Streamline Your Business?</h2>
+                <p>Join thousands of businesses that have transformed their operations with our integration platform</p>
+                <a href="#free-trial" class="btn btn-accent free-trial-btn">Start Your Free Trial Today</a>
+            </div>
+        </section>
+
+        <!-- Demo Form Section -->
+        <section id="demo-form" class="features">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Request a Personalized Demo</h2>
+                    <p>See how our integration solutions can work for your specific business needs</p>
+                </div>
+                <div class="form-container">
+                    <form id="demoRequestForm">
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" class="form-control" placeholder="Enter your full name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" class="form-control" placeholder="Enter your email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="company">Company Name</label>
+                            <input type="text" id="company" class="form-control" placeholder="Enter your company name">
+                        </div>
+                        <div class="form-group">
+                            <label for="platform">Current Platform</label>
+                            <select id="platform" class="form-control">
+                                <option value="">Select your current platform</option>
+                                <option value="shopify">Shopify</option>
+                                <option value="square">Square</option>
+                                <option value="woocommerce">WooCommerce</option>
+                                <option value="magento">Magento</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn" style="width: 100%;">Request Demo</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </section>
+
+    <!-- Solutions Page -->
+    <section id="solutions-page" class="page-content page-hidden">
         <div class="container">
-            <h1>Seamless POS & eCommerce Integration</h1>
-            <p>Connect your sales channels, automate inventory management, and streamline operations with our powerful integration platform.</p>
-            <div class="hero-btns">
-                <a href="#demo-form" class="btn">Request a Demo</a>
-                <a href="#" class="btn btn-secondary">Start Free Trial</a>
+            <div class="breadcrumb">
+                <a href="#home">Home</a> > Solutions
+            </div>
+            <div class="section-title">
+                <h1>Our Solutions</h1>
+                <p>Tailored integration solutions for different business needs</p>
+            </div>
+            
+            <div class="solutions-grid">
+                <div class="solution-card">
+                    <div class="solution-icon"><i class="fas fa-store"></i></div>
+                    <h3>Retail Integration</h3>
+                    <p>Seamlessly connect your physical stores with online sales channels for unified inventory and customer management.</p>
+                    <a href="#contact" class="btn btn-outline" style="margin-top: 15px;">Learn More</a>
+                </div>
+                <div class="solution-card">
+                    <div class="solution-icon"><i class="fas fa-utensils"></i></div>
+                    <h3>Restaurant Solutions</h3>
+                    <p>Integrate your POS with online ordering, delivery platforms, and kitchen management systems.</p>
+                    <a href="#contact" class="btn btn-outline" style="margin-top: 15px;">Learn More</a>
+                </div>
+                <div class="solution-card">
+                    <div class="solution-icon"><i class="fas fa-map-marker-alt"></i></div>
+                    <h3>Multi-Location</h3>
+                    <p>Manage inventory, orders, and reporting across multiple store locations from a single dashboard.</p>
+                    <a href="#contact" class="btn btn-outline" style="margin-top: 15px;">Learn More</a>
+                </div>
+                <div class="solution-card">
+                    <div class="solution-icon"><i class="fas fa-building"></i></div>
+                    <h3>Enterprise</h3>
+                    <p>Scalable solutions for large organizations with complex integration needs and custom requirements.</p>
+                    <a href="#contact" class="btn btn-outline" style="margin-top: 15px;">Learn More</a>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Features Section -->
-    <section class="features">
+    <!-- Integrations Page -->
+    <section id="integrations-page" class="page-content page-hidden">
         <div class="container">
-            <div class="section-title">
-                <h2>Powerful Features for Your Business</h2>
-                <p>Our integration platform offers everything you need to synchronize your POS and eCommerce systems</p>
+            <div class="breadcrumb">
+                <a href="#home">Home</a> > Integrations
             </div>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">🔄</div>
-                    <h3>Real-Time Sync</h3>
-                    <p>Keep inventory, orders, and customer data synchronized across all your sales channels in real-time.</p>
+            <div class="section-title">
+                <h1>Platform Integrations</h1>
+                <p>Connect with your favorite eCommerce and POS platforms</p>
+            </div>
+            
+            <div class="integrations-grid">
+                <div class="integration-card">
+                    <div class="integration-icon"><i class="fab fa-shopify"></i></div>
+                    <div class="integration-card-content">
+                        <h3>Shopify</h3>
+                        <p>Seamlessly sync your Shopify store with your POS system for unified inventory and order management.</p>
+                        <a href="#contact" class="btn btn-outline">Get Started</a>
+                    </div>
                 </div>
-                <div class="feature-card">
-                    <div class="feature-icon">📊</div>
-                    <h3>Unified Reporting</h3>
-                    <p>Get comprehensive insights with consolidated reports from all your sales channels.</p>
+                <div class="integration-card">
+                    <div class="integration-icon"><i class="fas fa-square"></i></div>
+                    <div class="integration-card-content">
+                        <h3>Square</h3>
+                        <p>Connect Square POS with your eCommerce platform for real-time synchronization across channels.</p>
+                        <a href="#contact" class="btn btn-outline">Get Started</a>
+                    </div>
                 </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🛒</div>
-                    <h3>Multi-Channel Sales</h3>
-                    <p>Sell anywhere with seamless integration between your physical stores and online platforms.</p>
+                <div class="integration-card">
+                    <div class="integration-icon"><i class="fab fa-wordpress"></i></div>
+                    <div class="integration-card-content">
+                        <h3>WooCommerce</h3>
+                        <p>Integrate your WooCommerce store with multiple POS systems for omnichannel retail.</p>
+                        <a href="#contact" class="btn btn-outline">Get Started</a>
+                    </div>
                 </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🔒</div>
-                    <h3>Secure & Reliable</h3>
-                    <p>Enterprise-grade security with 99.9% uptime guarantee for uninterrupted operations.</p>
+                <div class="integration-card">
+                    <div class="integration-icon"><i class="fab fa-magento"></i></div>
+                    <div class="integration-card-content">
+                        <h3>Magento</h3>
+                        <p>Powerful integration solutions for Magento stores with advanced inventory management.</p>
+                        <a href="#contact" class="btn btn-outline">Get Started</a>
+                    </div>
+                </div>
+                <div class="integration-card">
+                    <div class="integration-icon"><i class="fas fa-shopping-bag"></i></div>
+                    <div class="integration-card-content">
+                        <h3>BigCommerce</h3>
+                        <p>Connect BigCommerce with your retail POS for seamless omnichannel experiences.</p>
+                        <a href="#contact" class="btn btn-outline">Get Started</a>
+                    </div>
+                </div>
+                <div class="integration-card">
+                    <div class="integration-icon"><i class="fas fa-cogs"></i></div>
+                    <div class="integration-card-content">
+                        <h3>Custom Solutions</h3>
+                        <p>Need something specific? We build custom integrations for unique business requirements.</p>
+                        <a href="#contact" class="btn btn-outline">Get Started</a>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Testimonials Section -->
-    <section class="testimonials">
+    <!-- Pricing Page -->
+    <section id="pricing-page" class="page-content page-hidden">
         <div class="container">
+            <div class="breadcrumb">
+                <a href="#home">Home</a> > Pricing
+            </div>
             <div class="section-title">
-                <h2>What Our Clients Say</h2>
-                <p>Discover how businesses like yours are transforming their operations with our integration solutions</p>
+                <h1>Simple, Transparent Pricing</h1>
+                <p>Choose the plan that works best for your business</p>
             </div>
-            <div class="testimonial-slider">
-                <div class="testimonial">
-                    <p class="testimonial-text">"IntegratePro transformed our multi-store operations. We now have real-time visibility across all channels, reducing stockouts by 80%."</p>
-                    <p class="testimonial-author">Sarah Johnson</p>
-                    <p class="testimonial-role">Operations Manager, Retail Chain</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Product Information Section -->
-    <section class="product-info">
-        <div class="container">
-            <div class="section-title">
-                <h2>How Our Integration Works</h2>
-                <p>Simple setup, powerful results - connect your systems in minutes</p>
-            </div>
-            <div class="info-grid">
-                <div class="info-card">
-                    <h3>Platform Compatibility</h3>
-                    <ul>
-                        <li>Shopify & Shopify Plus</li>
-                        <li>Square POS</li>
-                        <li>WooCommerce</li>
-                        <li>Magento</li>
-                        <li>BigCommerce</li>
-                        <li>Custom POS Systems</li>
+            
+            <div class="pricing-table">
+                <div class="pricing-card">
+                    <h3>Starter</h3>
+                    <div class="price">$49<span>/month</span></div>
+                    <p>Perfect for small businesses with basic integration needs</p>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> 1 POS System</li>
+                        <li><i class="fas fa-check"></i> 1 eCommerce Platform</li>
+                        <li><i class="fas fa-check"></i> Basic Inventory Sync</li>
+                        <li><i class="fas fa-check"></i> Standard Support</li>
+                        <li><i class="fas fa-times"></i> Multi-Location</li>
+                        <li><i class="fas fa-times"></i> Advanced Reporting</li>
                     </ul>
+                    <a href="#free-trial" class="btn btn-outline free-trial-btn">Start Free Trial</a>
                 </div>
-                <div class="info-card">
-                    <h3>Key Integration Features</h3>
-                    <ul>
-                        <li>Automated inventory synchronization</li>
-                        <li>Order management across channels</li>
-                        <li>Customer data unification</li>
-                        <li>Real-time sales reporting</li>
-                        <li>Multi-location support</li>
-                        <li>API access for custom solutions</li>
+                
+                <div class="pricing-card popular">
+                    <div class="popular-badge">Most Popular</div>
+                    <h3>Professional</h3>
+                    <div class="price">$99<span>/month</span></div>
+                    <p>Ideal for growing businesses with multiple sales channels</p>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> Up to 3 POS Systems</li>
+                        <li><i class="fas fa-check"></i> Up to 3 eCommerce Platforms</li>
+                        <li><i class="fas fa-check"></i> Real-Time Inventory Sync</li>
+                        <li><i class="fas fa-check"></i> Priority Support</li>
+                        <li><i class="fas fa-check"></i> Multi-Location Support</li>
+                        <li><i class="fas fa-check"></i> Advanced Reporting</li>
                     </ul>
+                    <a href="#free-trial" class="btn free-trial-btn">Start Free Trial</a>
+                </div>
+                
+                <div class="pricing-card">
+                    <h3>Enterprise</h3>
+                    <div class="price">Custom</div>
+                    <p>For large organizations with complex integration needs</p>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> Unlimited POS Systems</li>
+                        <li><i class="fas fa-check"></i> Unlimited eCommerce Platforms</li>
+                        <li><i class="fas fa-check"></i> Real-Time Everything</li>
+                        <li><i class="fas fa-check"></i> 24/7 Premium Support</li>
+                        <li><i class="fas fa-check"></i> Advanced Multi-Location</li>
+                        <li><i class="fas fa-check"></i> Custom Reporting & API</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-outline">Contact Sales</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- FAQ Section -->
-    <section class="faq">
+    <!-- Contact Page -->
+    <section id="contact-page" class="page-content page-hidden">
         <div class="container">
+            <div class="breadcrumb">
+                <a href="#home">Home</a> > Contact
+            </div>
             <div class="section-title">
-                <h2>Frequently Asked Questions</h2>
-                <p>Find answers to common questions about our integration platform</p>
+                <h1>Get In Touch</h1>
+                <p>Have questions? We're here to help you find the right solution</p>
             </div>
-            <div class="faq-list">
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <span>How long does setup take?</span>
-                        <span>+</span>
+            
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h2>Contact Information</h2>
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+                        <div>
+                            <h3>Address</h3>
+                            <p>123 Business Avenue, Suite 100<br>San Francisco, CA 94107</p>
+                        </div>
                     </div>
-                    <div class="faq-answer">
-                        <p>Most integrations can be set up in under 30 minutes with our guided setup process. For complex multi-location setups, our team provides dedicated implementation support.</p>
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fas fa-phone"></i></div>
+                        <div>
+                            <h3>Phone</h3>
+                            <p>(555) 123-4567</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+                        <div>
+                            <h3>Email</h3>
+                            <p>info@integratepro.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fas fa-clock"></i></div>
+                        <div>
+                            <h3>Business Hours</h3>
+                            <p>Monday - Friday: 9:00 AM - 6:00 PM PST</p>
+                        </div>
                     </div>
                 </div>
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <span>What happens during a free trial?</span>
-                        <span>+</span>
-                    </div>
-                    <div class="faq-answer">
-                        <p>During your 14-day free trial, you get full access to all features with no limitations. Our support team is available to help you set up and optimize your integration.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <span>Do you offer custom solutions?</span>
-                        <span>+</span>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Yes, we offer custom integration solutions for businesses with unique requirements. Contact our sales team to discuss your specific needs.</p>
-                    </div>
+                
+                <div class="form-container">
+                    <h2>Send us a Message</h2>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="contact-name">Full Name</label>
+                            <input type="text" id="contact-name" class="form-control" placeholder="Your full name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="contact-email">Email Address</label>
+                            <input type="email" id="contact-email" class="form-control" placeholder="Your email address" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="contact-company">Company Name</label>
+                            <input type="text" id="contact-company" class="form-control" placeholder="Your company name">
+                        </div>
+                        <div class="form-group">
+                            <label for="contact-subject">Subject</label>
+                            <input type="text" id="contact-subject" class="form-control" placeholder="Subject of your message">
+                        </div>
+                        <div class="form-group">
+                            <label for="contact-message">Message</label>
+                            <textarea id="contact-message" class="form-control" placeholder="How can we help you?"></textarea>
+                        </div>
+                        <button type="submit" class="btn" style="width: 100%;">Send Message</button>
+                    </form>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Final CTA Section -->
-    <section class="cta-section">
+    <!-- Resources Page -->
+    <section id="resources-page" class="page-content page-hidden">
         <div class="container">
-            <h2>Ready to Streamline Your Business?</h2>
-            <p>Join thousands of businesses that have transformed their operations with our integration platform</p>
-            <a href="#" class="btn btn-accent">Start Your Free Trial Today</a>
-        </div>
-    </section>
-
-    <!-- Demo Form Section -->
-    <section id="demo-form" class="features">
-        <div class="container">
+            <div class="breadcrumb">
+                <a href="#home">Home</a> > Resources
+            </div>
             <div class="section-title">
-                <h2>Request a Personalized Demo</h2>
-                <p>See how our integration solutions can work for your specific business needs</p>
+                <h1>Resources</h1>
+                <p>Helpful documentation and resources to get the most out of our platform</p>
             </div>
-            <div class="form-container">
-                <form id="demoRequestForm">
-                    <div class="form-group">
-                        <label for="name">Full Name</label>
-                        <input type="text" id="name" class="form-control" placeholder="Enter your full name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email Address</label>
-                        <input type="email" id="email" class="form-control" placeholder="Enter your email" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="company">Company Name</label>
-                        <input type="text" id="company" class="form-control" placeholder="Enter your company name">
-                    </div>
-                    <div class="form-group">
-                        <label for="platform">Current Platform</label>
-                        <select id="platform" class="form-control">
-                            <option value="">Select your current platform</option>
-                            <option value="shopify">Shopify</option>
-                            <option value="square">Square</option>
-                            <option value="woocommerce">WooCommerce</option>
-                            <option value="magento">Magento</option>
-                            <option value="other">Other</option>
-                        </select>
-                    </div>
-                    <button type="submit" class="btn" style="width: 100%;">Request Demo</button>
-                </form>
+            
+            <div class="resources-grid">
+                <div class="resource-card">
+                    <div class="resource-icon"><i class="fas fa-book"></i></div>
+                    <h3>Documentation</h3>
+                    <p>Comprehensive guides and tutorials to help you set up and use our integration platform.</p>
+                    <a href="#" class="btn btn-outline" style="margin-top: 15px;">View Documentation</a>
+                </div>
+                <div class="resource-card">
+                    <div class="resource-icon"><i class="fas fa-code"></i></div>
+                    <h3>API Reference</h3>
+                    <p>Technical documentation for developers looking to build custom integrations with our API.</p>
+                    <a href="#" class="btn btn-outline" style="margin-top: 15px;">API Documentation</a>
+                </div>
+                <div class="resource-card">
+                    <div class="resource-icon"><i class="fas fa-blog"></i></div>
+                    <h3>Blog</h3>
+                    <p>Latest news, tips, and best practices for POS and eCommerce integration.</p>
+                    <a href="#" class="btn btn-outline" style="margin-top: 15px;">Visit Blog</a>
+                </div>
+                <div class="resource-card">
+                    <div class="resource-icon"><i class="fas fa-life-ring"></i></div>
+                    <h3>Support Center</h3>
+                    <p>Get help with common issues, contact support, or request new features.</p>
+                    <a href="#" class="btn btn-outline" style="margin-top: 15px;">Get Support</a>
+                </div>
             </div>
         </div>
     </section>
@@ -655,19 +1207,19 @@
                 <div class="footer-column">
                     <h3>Solutions</h3>
                     <ul>
-                        <li><a href="#">Retail Integration</a></li>
-                        <li><a href="#">Restaurant Solutions</a></li>
-                        <li><a href="#">Multi-Location</a></li>
-                        <li><a href="#">Enterprise</a></li>
+                        <li><a href="#solutions">Retail Integration</a></li>
+                        <li><a href="#solutions">Restaurant Solutions</a></li>
+                        <li><a href="#solutions">Multi-Location</a></li>
+                        <li><a href="#solutions">Enterprise</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
                     <h3>Resources</h3>
                     <ul>
-                        <li><a href="#">Documentation</a></li>
-                        <li><a href="#">API Reference</a></li>
-                        <li><a href="#">Blog</a></li>
-                        <li><a href="#">Support Center</a></li>
+                        <li><a href="#resources">Documentation</a></li>
+                        <li><a href="#resources">API Reference</a></li>
+                        <li><a href="#resources">Blog</a></li>
+                        <li><a href="#resources">Support Center</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
@@ -685,38 +1237,233 @@
         </div>
     </footer>
 
-    <script>
-        // Mobile menu toggle
-        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
-            document.querySelector('nav ul').classList.toggle('active');
-        });
+    <!-- Demo Modal -->
+    <div id="demo-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Request a Demo</h2>
+                <button class="close-modal">&times;</button>
+            </div>
+            <form id="modalDemoForm">
+                <div class="form-group">
+                    <label for="modal-name">Full Name</label>
+                    <input type="text" id="modal-name" class="form-control" placeholder="Enter your full name" required>
+                </div>
+                <div class="form-group">
+                    <label for="modal-email">Email Address</label>
+                    <input type="email" id="modal-email" class="form-control" placeholder="Enter your email" required>
+                </div>
+                <div class="form-group">
+                    <label for="modal-company">Company Name</label>
+                    <input type="text" id="modal-company" class="form-control" placeholder="Enter your company name">
+                </div>
+                <div class="form-group">
+                    <label for="modal-platform">Current Platform</label>
+                    <select id="modal-platform" class="form-control">
+                        <option value="">Select your current platform</option>
+                        <option value="shopify">Shopify</option>
+                        <option value="square">Square</option>
+                        <option value="woocommerce">WooCommerce</option>
+                        <option value="magento">Magento</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn" style="width: 100%;">Request Demo</button>
+            </form>
+        </div>
+    </div>
 
-        // FAQ accordion functionality
-        document.querySelectorAll('.faq-question').forEach(question => {
-            question.addEventListener('click', () => {
-                const answer = question.nextElementSibling;
-                answer.classList.toggle('active');
-                
-                // Toggle the plus/minus icon
-                const icon = question.querySelector('span:last-child');
-                icon.textContent = answer.classList.contains('active') ? '−' : '+';
+    <!-- Free Trial Modal -->
+    <div id="trial-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Start Your Free Trial</h2>
+                <button class="close-modal">&times;</button>
+            </div>
+            <form id="modalTrialForm">
+                <div class="form-group">
+                    <label for="trial-name">Full Name</label>
+                    <input type="text" id="trial-name" class="form-control" placeholder="Enter your full name" required>
+                </div>
+                <div class="form-group">
+                    <label for="trial-email">Email Address</label>
+                    <input type="email" id="trial-email" class="form-control" placeholder="Enter your email" required>
+                </div>
+                <div class="form-group">
+                    <label for="trial-company">Company Name</label>
+                    <input type="text" id="trial-company" class="form-control" placeholder="Enter your company name">
+                </div>
+                <div class="form-group">
+                    <label for="trial-plan">Select Plan</label>
+                    <select id="trial-plan" class="form-control">
+                        <option value="starter">Starter - $49/month</option>
+                        <option value="professional">Professional - $99/month</option>
+                        <option value="enterprise">Enterprise - Custom Pricing</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-accent" style="width: 100%;">Start Free Trial</button>
+                <p style="text-align: center; margin-top: 15px; font-size: 0.9rem;">14-day free trial. No credit card required.</p>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Page Navigation System
+        document.addEventListener('DOMContentLoaded', function() {
+            // Show home page by default
+            showPage('home-page');
+            
+            // Navigation links
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const target = this.getAttribute('href').substring(1);
+                    
+                    // Update active nav link
+                    document.querySelectorAll('.nav-link').forEach(nav => {
+                        nav.classList.remove('active');
+                    });
+                    this.classList.add('active');
+                    
+                    // Show the corresponding page
+                    showPage(target + '-page');
+                });
+            });
+            
+            // Footer links for Solutions and Resources
+            document.querySelectorAll('footer a').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const target = this.getAttribute('href').substring(1);
+                    
+                    // Update active nav link
+                    document.querySelectorAll('.nav-link').forEach(nav => {
+                        nav.classList.remove('active');
+                        if (nav.getAttribute('href').substring(1) === target) {
+                            nav.classList.add('active');
+                        }
+                    });
+                    
+                    // Show the corresponding page
+                    showPage(target + '-page');
+                });
+            });
+            
+            // Request Demo buttons
+            document.querySelectorAll('.request-demo-btn').forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    openModal('demo-modal');
+                });
+            });
+            
+            // Free Trial buttons
+            document.querySelectorAll('.free-trial-btn').forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    openModal('trial-modal');
+                });
+            });
+            
+            // Close modal buttons
+            document.querySelectorAll('.close-modal').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    closeModal();
+                });
+            });
+            
+            // Close modal when clicking outside
+            document.querySelectorAll('.modal').forEach(modal => {
+                modal.addEventListener('click', function(e) {
+                    if (e.target === this) {
+                        closeModal();
+                    }
+                });
+            });
+            
+            // Form submissions
+            document.getElementById('demoRequestForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('Thank you for your demo request! We will contact you shortly.');
+                this.reset();
+            });
+            
+            document.getElementById('contactForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('Thank you for your message! We will get back to you soon.');
+                this.reset();
+            });
+            
+            document.getElementById('modalDemoForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('Thank you for your demo request! We will contact you shortly.');
+                closeModal();
+                this.reset();
+            });
+            
+            document.getElementById('modalTrialForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('Your free trial has been activated! Check your email for setup instructions.');
+                closeModal();
+                this.reset();
+            });
+            
+            // FAQ accordion functionality
+            document.querySelectorAll('.faq-question').forEach(question => {
+                question.addEventListener('click', () => {
+                    const answer = question.nextElementSibling;
+                    answer.classList.toggle('active');
+                    
+                    // Toggle the plus/minus icon
+                    const icon = question.querySelector('span:last-child');
+                    icon.textContent = answer.classList.contains('active') ? '−' : '+';
+                });
+            });
+            
+            // Mobile menu toggle
+            document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+                document.querySelector('nav ul').classList.toggle('active');
             });
         });
-
-        // Form submission
-        document.getElementById('demoRequestForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('Thank you for your demo request! We will contact you shortly.');
-            this.reset();
-        });
-
-        // Simple form validation
-        document.querySelectorAll('.form-control').forEach(input => {
-            input.addEventListener('blur', function() {
-                if (this.value.trim() === '' && this.hasAttribute('required')) {
-                    this.style.borderColor = 'red';
-                } else {
-                    this.style.borderColor = '#ddd';
+        
+        // Function to show a specific page and hide others
+        function showPage(pageId) {
+            // Hide all pages
+            document.querySelectorAll('.page-content').forEach(page => {
+                page.classList.add('page-hidden');
+            });
+            
+            // Show the requested page
+            document.getElementById(pageId).classList.remove('page-hidden');
+            
+            // Scroll to top
+            window.scrollTo(0, 0);
+        }
+        
+        // Function to open a modal
+        function openModal(modalId) {
+            document.getElementById(modalId).style.display = 'flex';
+            document.body.style.overflow = 'hidden'; // Prevent scrolling
+        }
+        
+        // Function to close all modals
+        function closeModal() {
+            document.querySelectorAll('.modal').forEach(modal => {
+                modal.style.display = 'none';
+            });
+            document.body.style.overflow = 'auto'; // Re-enable scrolling
+        }
+        
+        // Handle browser back/forward buttons
+        window.addEventListener('popstate', function(event) {
+            const page = window.location.hash.substring(1) || 'home';
+            showPage(page + '-page');
+            
+            // Update active nav link
+            document.querySelectorAll('.nav-link').forEach(nav => {
+                nav.classList.remove('active');
+                if (nav.getAttribute('href').substring(1) === page) {
+                    nav.classList.add('active');
                 }
             });
         });
